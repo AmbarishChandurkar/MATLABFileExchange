@@ -1,4 +1,4 @@
-# MATLABFileExchange-
+# MATLABFileExchange
 
 I am Ambarish Prashant Chandurkar, Bachelor of Technology ECE(2021) from IIIT Nagpur 
 This repository contains Implementation MATLAB Algorithms for the course Numerical Methods (MAL - 201)
