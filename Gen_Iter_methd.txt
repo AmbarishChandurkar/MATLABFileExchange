@@ -1,0 +1,23 @@
+"The General Iteration Method" also known as "The Fixed Point Iteration Method" , uses the definition of the function itself to find the root in a recursive way.
+
+Suppose the given function is f (x) = sin (x) + x. This function can be written in following way :-
+	xkplus1 = sin (xk) ; xkplus1 = asin (xk)
+Here f (x) = 0 since this the value of function at the root. "xk" is the kth approximation to the root and "xkplus1" is the next approximation to the root.Proceeding in this way we go on finding approximations to the root and hopefully converge to the actual root.
+
+The R.H.S of the equations is written as :- phi(xk)
+So the equation is written as follows :- xkplus1 =  phi(xk)
+
+We have observed above that there are multiple choices for "phi(xk)" . Which to choose?
+There exists a necessary condition to be satisfied and this helps in choosing the right "phi(xk)".
+The condition is as follows :- || (d/dx)phi(xk) || < 1 , where d/dx denotes the derivative of "phi(xk)"
+
+In order to further facilitate the finding of right "phi(xk)" we write "phi(xk)" in this format :-
+	phi(xk) = x + alpha * f (x)
+So now the condition is :- || (d/dx)phi(xk) || < 1 => ||1 + alpha * (d/dx) f (xk)|| < 1
+Using this condition we find an interval "I" for "alpha". ANY "alpha" from that interval would satisfy our neccesary condition.
+
+IMPORTANT NOTE : The Neccesary Condition should be satisfied for EACH iteration.
+
+So in this script we randomly select an "alpha" from the interval "I" and check the condition at each iteration. If it is not satisfied, we choose randomly another alpha.
+
+Proceeding in this way, we perform upto 200 iterations .The Accuracy required (required no. of decimal places) is taken as input from the user. The error between solutions of each iteration is checked everytime and if found less than required accuracy, the iterations are stopped.

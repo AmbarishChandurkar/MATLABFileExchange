@@ -1,0 +1,9 @@
+This Script Demonstrates the use of "The Regula-Falsi Method " in solving the various mathematical Equations.
+
+"The Regula-Falsi Method" uses two initial approximations {x0 , x1} to solve a given equation y = f(x).In this method the function f(x) , is approximated by a secant line, whose equation is from the two initial approximations supplied.The secant line then intersects the X - Axis at third point {x2} 
+
+Upto this point both "The Secant Method" and the "The Regula-Falsi Method" are exactly same. But in the next step, in "The Regula-Falsi Method" we use the "Intermediate Value Theorem" to check whether the "Zero" of the equation y = f(x) lies in the interval {x0,x1} or {x1,x2}.
+
+After the Interval has been found, "The Regula-Falsi Method " is again applied on those two points.
+
+The script proceeds in the same way and performs upto 100 iterations. The Accuracy required (required no. of decimal places) is taken as input from the user. The error between solutions of each iteration is checked everytime and if found less than required accuracy, the iterations are stopped.

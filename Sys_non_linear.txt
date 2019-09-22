@@ -1,0 +1,38 @@
+We have learnt about solving the systems of linear equations. Different techniques like Cramer's rule, Gauss Elimination, etc exist for them.
+
+But a large number of equations in real life are Non-linear in nature.We know various numerical methods like Newton-Raphson method, regula falsi method, etc in order to find a numerical solutions to such equations.
+
+But what if the equations have more than one independent variable? Then as per rule, no. of equations must be equal to the number of equations ! These equations the  form a System. How do we solve such "System of Non-Linear Equations" ?
+
+Here comes the generalisation of the iteration methods mentioned above applied to a 
+"System of Non-Linear Equations". The system of non-linear equations may consist of "Transcendental Equations" or "Nth order equations" or "Polynomial Equations" or Combinations of them. 
+
+This script demonstrates the use of  "The Newton - Raphson Method" to solve a "System of Non-Linear Equations" in 3 Independent Variables.
+
+The method proceeds as follows. Let f = f (x,y,z) ; g = g (x,y,z) ; h = h (x,y,z) be 3 non-linear equations. Let (fx , fy , fz) ; (gx , gy , gz) ; (hx , hy , hz) be the partial derivatives w.r.t  x,y,z  of f,g,h respectively. Let  x0 , y0 , z0 be the initial approximations to the exact root.
+
+Denote xk , yk ,zk  = kth approximation to the root
+            fk , gk , hk =  Value of  f,g,h at (xk , yk ,zk)
+            fxk , gxk , hxk = Value of fx , gx , hx at (xk , yk ,zk)
+            fyk , gyk , hyk = Value of fy , gy , hy at (xk , yk ,zk)
+            fzk , gzk , hzk = Value of fx , gx , hx at (xk , yk ,zk)
+            Tran(A) = Transpose of matrix "A"
+            Inv(A) = Inverse of Matrix "A"
+            Eig(A) = Eigenvalues of matrix "A"
+
+We create 3 matrices as follows :-
+	J = [fxk  fyk  fzk ; gxk  gyk  gzk ; hxk  hyk  hzk]   = The jacobian matrix , ";"(semicolon) denotes a new row
+	xyzk = Tran([xk yk zk])   = The kth values of x,y,z
+	Fk = Tran([fk gk hk])   =  Matrix of function values
+
+The formula to find (k+1)th approximation to root is : - xyzkplus1 = (xyzk - inv(J)*Fk)
+
+"The Newton - Raphson Method" uses one initial approximation to solve a given equation y = f(x).In this method the function f(x) , is approximated by a tangent line, whose equation is found from the value of f(x) and its first derivative at the initial approximation.
+
+The tangent line then intersects the X - Axis at second point. This second point is again used as next approximation to find the third point.
+In the similar way, we find (k+1)th "Matrix" of approximation at each Iteration. Instead of a "Derivative" we take a "Partial derivative". 
+
+IMPORTANT NOTE : There exists a "Sufficient Condition" that need to be fulfilled so that the iterations converge.
+		The condition is as follows :- || Max( eig ( inv ( J ) ) ) || >= 1 ,that is, the magnitude of the largest eigenvalue of inverse of the jacobian must be greater tha unity.
+
+The script proceeds in the same way and performs upto 5 iterations. The Accuracy required (required no. of decimal places) is taken as input from the user. The error between solutions of each iteration is checked everytime and if found less than required accuracy, the iterations are stopped.
